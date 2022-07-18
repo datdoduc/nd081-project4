@@ -11,7 +11,7 @@ from datetime import datetime
 # TODO: Import required libraries for App Insights
 
 # Logging
-logger = # TODO: Setup logger
+logger = logging.getLogger() # TODO: Setup logger -> DONE
 
 # Metrics
 exporter = # TODO: Setup exporter
