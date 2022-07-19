@@ -1,6 +1,6 @@
-Flask==2.0.1
-opencensus-ext-azure
-opencensus-ext-flask
+Flask==2.0.3
+opencensus-ext-azure==1.0.4
+opencensus-ext-flask==0.8.0
 redis==3.5.3
-opencensus
-opencensus-ext-logging
+opencensus==0.10.0
+opencensus-ext-logging==0.1.0
