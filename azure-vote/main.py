@@ -125,11 +125,13 @@ def index():
             properties = {'custom_dimensions': {'Cats Vote': vote1}}
             # TODO: use logger object to log cat vote -> DONE
             logger.info('Cats Vote', extra=properties)
+            print('Cats reset')
 
             vote2 = r.get(button2).decode('utf-8')
             properties = {'custom_dimensions': {'Dogs Vote': vote2}}
             # TODO: use logger object to log dog vote -> DONE
             logger.info('Dogs Vote', extra=properties)
+            print('Dogs reset')
 
             return render_template("index.html", value1=int(vote1), value2=int(vote2), button1=button1, button2=button2, title=title)
 
@@ -141,14 +143,17 @@ def index():
 
             # Get current values
             vote1 = r.get(button1).decode('utf-8')
-            properties = {'custom_dimensions': {'Cats Vote': vote1}}
-            # TODO: use logger object to log cat vote -> DONE
-            logger.info('Cats Vote', extra=properties)
-
             vote2 = r.get(button2).decode('utf-8')
-            properties = {'custom_dimensions': {'Dogs Vote': vote2}}
-            # TODO: use logger object to log dog vote -> DONE
-            logger.info('Dogs Vote', extra=properties)
+
+            # TODO: use logger object to log dog/cat vote -> DONE
+            if vote == button1:
+                properties = {'custom_dimensions': {'Cats Vote': vote1}}
+                logger.info('Cats Vote', extra=properties)
+                print('Cats voted')
+            elif  vote == button2:
+                properties = {'custom_dimensions': {'Dogs Vote': vote2}}
+                logger.info('Dogs Vote', extra=properties)
+                print('Dogs voted')
 
             # Return results
             return render_template("index.html", value1=int(vote1), value2=int(vote2), button1=button1, button2=button2, title=title)
